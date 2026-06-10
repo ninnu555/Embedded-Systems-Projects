@@ -1,0 +1,27 @@
+Multi-core: 
+Array_dim: 10	-> t_duration= CDF
+Array_dim: 100	-> t_duration= 5C02
+Array_dim: 1000	-> t_duration= 2FBC7
+
+Single-core: 
+Array_dim: 10	-> t_duration= E3D
+Array_dim: 100	-> t_duration= 81B3
+Array_dim: 1000	-> t_duration= 49DB0
+
+Multi-core SIMD + optimization: 
+Array_dim: 10	-> t_duration= 33F
+Array_dim: 100	-> t_duration= E63
+Array_dim: 1000	-> t_duration= 467F
+
+Single-core SIMD + optimization: 
+Array_dim: 10	-> t_duration= 287
+Array_dim: 100	-> t_duration= 164B
+Array_dim: 1000	-> t_duration= 75AD
+
+In general, the parallel execution version provides a better performance (in terms of execution time) with respect to the single-core version. However, for smaller array dimensions (like 10 in our case), the overhead implied for managing the parallel processing results being more costy than the benefits the parallel architecture gives, making the single-core architecture faster than the parallel one for this specific case.
+
+In general, enabling optimization options (O2) and applying vectorization (SIMD) allow the performance (in terms of execution time) to increase on both single-core and parallel architecture with the parallel version always performing better than the single-core for larger arrays.
+
+Moreover, there is a difference in speedup contribute between that provided by the change of architecture and the vectorization enabling, which sees the vectorization version giving a higher contribute than the parallel one.
+
+
